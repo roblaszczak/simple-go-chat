@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chatApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple GoChat</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+          integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"
+          integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="app.css" rel="stylesheet">
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="icon" href="favicon.ico">
+</head>
+
+<body ng-controller="ChatCtrl">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div id="logo" class="navbar-header">
+                <a class="navbar-brand" href="#"><img src="logo.png"><span class="name">GoChat</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li><a href=""><input type="text" ng-model="nick" id="nick" class="form-control input-sm" placeholder="your nick"></a></li>
+                    <li><a href="">user1</a></li>
+                    <li><a href="">user2</a></li>
+                    <li><a href="">user3</a></li>
+                    <li><a href="">todo</a></li>
+                </ul>
+            </div>
+            <div id="chat" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8 main">
+                <h1 class="page-header">#test</h1>
+                <div class="chat-wrapper">
+                    <div class="chat">
+                        <table class="table table-striped table-hover">
+                            <tbody>
+                                <tr class="message" ng-repeat="message in messages">
+                                    <td class="avatar-column"><img src="http://www.gravatar.com/avatar/dd.jpg?d=mm&s=40"></td>
+                                    <td>
+                                        <p><span class="nick">{{message.Author}}</span> <span class="pull-right text-muted">{{message.Time | date:'HH:mm:ss'}}</span></p>
+                                        <p class="content">{{message.Content}}</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid container-send">
+        <div class="row">
+            <div class="col-sm-offset-3 col-md-offset-2 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 col-lg-8 main">
+                <form id="send-msg-form" ng-submit="sendMessage()">
+                    <div class="input-group">
+                        <input type="text" class="form-control message" ng-model="message" placeholder="Type something..." autofocus>
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default">Send</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://oss.maxcdn.com/jquery/2.1.4/jquery.min.js"
+            integrity="sha512-AFwxAkWdvxRd9qhYYp1qbeRZj6/iTNmJ2GFwcxsMOzwwTaRwz2a/2TX225Ebcj3whXte1WGQb38cXE5j7ZQw3g=="></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+            integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
+            crossorigin="anonymous"></script>
+    <script src="https://oss.maxcdn.com/angularjs/1.4.7/angular.js"
+            integrity="sha512-05HZJ+8WRf5crW3UrHVMEG99Ruj1o9f/xo8b5yd6RKbNswfgGXShCv48EZ4DvK/v9eSRd0rJAxGmHy0bM2xhBw=="></script>
+
+    <script src="app.js"></script>
+</body>
+</html>
