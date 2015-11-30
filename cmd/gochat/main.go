@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/roblaszczak/go-chat/adapter"
 	"github.com/roblaszczak/go-chat/chat"
 	"github.com/roblaszczak/go-chat/config"
-	"github.com/roblaszczak/go-chat/adapter"
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
+	"runtime"
 )
 
 func main() {
@@ -23,14 +25,25 @@ func RunServer(host string, port int) {
 	bridge.Listen()
 
 	assertPublicDirFiles()
-	fs := http.FileServer(http.Dir(config.PUBLIC_DIR))
+	fs := http.FileServer(http.Dir(getPublicDir()))
 	http.Handle("/", fs)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%d", host, port), nil))
 }
 
 func assertPublicDirFiles() {
-	appJsFile := config.PUBLIC_DIR + "/app.js"
+	appJsFile := getPublicDir() + "/app.js"
 	if _, err := os.Stat(appJsFile); err != nil {
 		panic(appJsFile + " doesn't exists. You need to dump JS files using 'make buildjs' command.")
 	}
+}
+
+func getPublicDir() string {
+	_, filename, _, _ := runtime.Caller(1)
+
+	publicDir, err := filepath.Abs(filepath.Dir(filename) + "/../../" + config.PUBLIC_DIR)
+	if err != nil {
+		panic(err)
+	}
+
+	return publicDir
 }
