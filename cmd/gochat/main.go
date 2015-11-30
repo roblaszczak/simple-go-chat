@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/roblaszczak/go-chat/adapter"
-	"github.com/roblaszczak/go-chat/chat"
-	"github.com/roblaszczak/go-chat/config"
+	"github.com/roblaszczak/simple-go-chat/adapter"
+	"github.com/roblaszczak/simple-go-chat/chat"
+	"github.com/roblaszczak/simple-go-chat/config"
 	"log"
 	"net/http"
 	"os"

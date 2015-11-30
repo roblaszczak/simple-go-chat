@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/roblaszczak/go-chat/chat"
+	"github.com/roblaszczak/simple-go-chat/chat"
 	"log"
 	"os"
 )

@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/roblaszczak/go-chat/chat"
+	"github.com/roblaszczak/simple-go-chat/chat"
 )
 
 // A MessagesSender is type responsible for sending messages to user via SenderDriver (for example websocket).

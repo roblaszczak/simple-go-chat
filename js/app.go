@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gopherjs/gopherjs/js"
-	"github.com/roblaszczak/go-chat/chat"
-	"github.com/roblaszczak/go-chat/config"
+	"github.com/roblaszczak/simple-go-chat/chat"
+	"github.com/roblaszczak/simple-go-chat/config"
 	"time"
 )
 
