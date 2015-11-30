@@ -1,3 +1,9 @@
+// Package chat is core of go-chat application. It is fully independent from
+// other modules.
+//
+// This package is responsible for connecting clients, receiving messages and
+// sending them to connected clients.
+//
 package chat
 
 import (

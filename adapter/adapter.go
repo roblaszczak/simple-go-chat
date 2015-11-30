@@ -1,3 +1,7 @@
+// Package adapter is responsible for translating incoming data (for example
+// from websocket) to application operations, and sending outcoming messages to
+// logged chat clients.
+//
 package adapter
 
 import (
