@@ -1,4 +1,4 @@
-package websocket
+package adapter
 
 // A WebsocketClient represents client connected to websocket, and provides acces for client input channel.
 type WebsocketClient struct {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/roblaszczak/go-chat/chat"
 	"github.com/roblaszczak/go-chat/config"
-	"github.com/roblaszczak/go-chat/websocket"
+	"github.com/roblaszczak/go-chat/adapter"
 	"log"
 	"net/http"
 	"os"
@@ -15,11 +15,11 @@ func main() {
 }
 
 func RunServer(host string, port int) {
-	websocketController := websocket.NewWebsocketController()
+	websocketController := adapter.NewWebsocketController()
 	http.Handle("/chat", websocketController)
 
 	chatCore := chat.NewChat()
-	bridge := websocket.NewChatBridge(websocketController, chatCore)
+	bridge := adapter.NewWebsocket(websocketController, chatCore)
 	bridge.Listen()
 
 	assertPublicDirFiles()

@@ -1,4 +1,4 @@
-package websocket
+package adapter
 
 import (
 	"encoding/json"
@@ -9,30 +9,30 @@ import (
 	"os"
 )
 
-// A ChatBridge is responsible for connecting chat layer with websocket layer, and keep this layers separated.
-type ChatBridge struct {
+// A Websocket is responsible for connecting chat layer with websocket layer, and keep this layers separated.
+type Websocket struct {
 	controller  ChatController
 	chatCore    *chat.Chat
 	chatClients map[*WebsocketClient]*chat.Client
 	logger      *log.Logger
 }
 
-// NewChatBridge create new instance of ChatBridge
-func NewChatBridge(controller ChatController, chatCore *chat.Chat) *ChatBridge {
+// NewWebsocket create new instance of ChatBridge
+func NewWebsocket(controller ChatController, chatCore *chat.Chat) *Websocket {
 	logger := log.New(os.Stderr, "chat-bridge: ", log.Ldate|log.Ltime|log.Lshortfile)
 
-	bridge := &ChatBridge{controller, chatCore, make(map[*WebsocketClient]*chat.Client), logger}
+	bridge := &Websocket{controller, chatCore, make(map[*WebsocketClient]*chat.Client), logger}
 	return bridge
 }
 
 // Listen runs processes responsive for handling data sent to websocket, and sends it to chat layer.
-func (b *ChatBridge) Listen() {
+func (b *Websocket) Listen() {
 	go b.listenForNewClients()
 	go b.listenForOutgoingMessages()
 	go b.listenForIncomingMessages()
 }
 
-func (b *ChatBridge) listenForNewClients() {
+func (b *Websocket) listenForNewClients() {
 	for {
 		websocketClient := <-b.controller.Clients()
 		chatClient := chat.NewClient(chat.RandomNick())
@@ -41,7 +41,7 @@ func (b *ChatBridge) listenForNewClients() {
 	}
 }
 
-func (b *ChatBridge) listenForIncomingMessages() {
+func (b *Websocket) listenForIncomingMessages() {
 	for {
 		received := <-b.controller.Received()
 		fmt.Println("received:", received.Data)
@@ -63,7 +63,7 @@ func (b *ChatBridge) listenForIncomingMessages() {
 	}
 }
 
-func (b *ChatBridge) listenForOutgoingMessages() {
+func (b *Websocket) listenForOutgoingMessages() {
 	for {
 		message := <-b.chatCore.OutgoingMessages()
 
@@ -83,7 +83,7 @@ func (b *ChatBridge) listenForOutgoingMessages() {
 	}
 }
 
-func (b *ChatBridge) getChatClient(websocketClient *WebsocketClient) (*chat.Client, error) {
+func (b *Websocket) getChatClient(websocketClient *WebsocketClient) (*chat.Client, error) {
 	chatClient, ok := b.chatClients[websocketClient]
 	if !ok {
 		return nil, errors.New("nie znaleziono klienta")
@@ -92,7 +92,7 @@ func (b *ChatBridge) getChatClient(websocketClient *WebsocketClient) (*chat.Clie
 	return chatClient, nil
 }
 
-func (b *ChatBridge) getWebsocketClient(chatClient *chat.Client) (*WebsocketClient, error) {
+func (b *Websocket) getWebsocketClient(chatClient *chat.Client) (*WebsocketClient, error) {
 	for mapWebsocketClient, mapChatClient := range b.chatClients {
 		if chatClient == mapChatClient {
 			return mapWebsocketClient, nil
