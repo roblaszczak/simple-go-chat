@@ -1,7 +1,7 @@
 TESTS_DIR = tests
 
 run:
-	go run go_chat.go
+	go run cmd/gochat/main.go
 
 buildjs:
 	gopherjs build js/*.go --output=public/app.js
