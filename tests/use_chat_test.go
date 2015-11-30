@@ -3,7 +3,7 @@ package main_test
 import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	. "github.com/roblaszczak/go-chat"
+	. "github.com/roblaszczak/go-chat/cmd/gochat"
 	"github.com/roblaszczak/go-chat/config"
 	"github.com/sclevine/agouti"
 	. "github.com/sclevine/agouti/matchers"
