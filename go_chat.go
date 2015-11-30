@@ -7,6 +7,7 @@ import (
 	"github.com/roblaszczak/go-chat/websocket"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -21,7 +22,15 @@ func RunServer(host string, port int) {
 	bridge := websocket.NewChatBridge(websocketController, chatCore)
 	bridge.Listen()
 
+	assertPublicDirFiles()
 	fs := http.FileServer(http.Dir(config.PUBLIC_DIR))
 	http.Handle("/", fs)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%d", host, port), nil))
+}
+
+func assertPublicDirFiles() {
+	appJsFile := config.PUBLIC_DIR + "/app.js"
+	if _, err := os.Stat(appJsFile); err != nil {
+		panic(appJsFile + " doesn't exists. You need to dump JS files using 'make buildjs' command.")
+	}
 }
