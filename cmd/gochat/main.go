@@ -23,8 +23,8 @@ func RunServer(host string, port int) {
 	handleWebsocket()
 	handlePublicFiles()
 
-	logger.Println(fmt.Sprintf("server started at http://%s:%d/", host, port))
-	log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%d", host, port), nil))
+	logger.Println(fmt.Sprintf("server started at http://:%d/", port))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
 }
 
 func handleWebsocket() {
