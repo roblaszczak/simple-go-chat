@@ -7,4 +7,5 @@ script:
   - make test
 
 install:
- - go get -d -t -v ./... && go build -v ./...
+ - go get -d -t -v ./...
+ - make buildjs
