@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"github.com/gopherjs/gopherjs/js"
 	"github.com/roblaszczak/simple-go-chat/chat"
-	"github.com/roblaszczak/simple-go-chat/config"
 	"time"
 )
 
@@ -70,7 +69,7 @@ func (m *messages) Add(message *js.Object) {
 }
 
 func createJsWebsocket(scope *js.Object) *Websocket {
-	websocketUrl := fmt.Sprintf("ws://%s:%d/chat", config.SERVER_HOST, config.SERVER_PORT)
+	websocketUrl := fmt.Sprintf("ws://%s/chat", GetWindowHost())
 	websocket := NewWebsocket(websocketUrl, func(event *js.Object) {
 		stringData := event.Get("data").String()
 

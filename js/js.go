@@ -24,3 +24,7 @@ func CreateAngularApp(name string, modules AngularAppModules) *AngularApp {
 
 	return &AngularApp{app}
 }
+
+func GetWindowHost() string {
+	return js.Global.Get("window").Get("location").Get("host").String()
+}
