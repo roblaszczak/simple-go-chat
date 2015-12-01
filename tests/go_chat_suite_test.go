@@ -16,7 +16,7 @@ func TestGoChat(t *testing.T) {
 var agoutiDriver *agouti.WebDriver
 
 var _ = BeforeSuite(func() {
-	agoutiDriver = agouti.Selenium()
+	agoutiDriver = agouti.NewWebDriver("http://127.0.0.1:4444/wd/hub", []string{"echo", "do nothing"})
 
 	Expect(agoutiDriver.Start()).To(Succeed())
 })
