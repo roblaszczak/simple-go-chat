@@ -23,8 +23,9 @@ All frontend's JavaScript's are written in Golang and they are dumped into JavaS
     # installs Simple Go chat
     go get github.com/roblaszczak/simple-go-chat/cmd/gochat
     
+    # build JavaScript for frontend
     cd "$GOPATH/src/github.com/roblaszczak/simple-go-chat"
-    make buildjs # build JavaScript for frontend
+    make buildjs 
 
 
 ### Docker
