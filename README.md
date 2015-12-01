@@ -53,6 +53,8 @@ Just execute
 
 - Frontend
   - [ ] Connection errors
+  - [ ] Sound on message
+  - [ ] Avatars support
 - Chat
   - [ ] Custom nickname support
   - [ ] Connected clients list
@@ -64,6 +66,7 @@ Just execute
 - [ ] Continious integration
 - [x] Docker image
 - [ ] Better support of client disconnect in controller
+- [ ] Encrypted websocket communication
 
 ## Contributing
 
