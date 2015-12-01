@@ -8,6 +8,8 @@ it is still far from perfection :) Any suggestions are welcome!
 All frontend's JavaScript's are written in Golang and they are dumped into JavaScript using 
 [gopherjs](https://github.com/gopherjs/gopherjs). Frontend is build using AngularJS.
 
+![Screen](https://github.com/roblaszczak/simple-go-chat/blob/master/docs/img/screen.png?raw=true)
+
 ## How to set up?
 
 ### Standard way
@@ -43,13 +45,17 @@ Just execute
 
     docker run -p 8080:8080 --rm --name chat simple-go-chat
 
+## Scheme
+
+![Structure](https://github.com/roblaszczak/simple-go-chat/blob/master/docs/img/scheme.png?raw=true)
+
 ## TODO
 
 - [ ] Config from args
 - [ ] Set channels directions
 - [ ] Extended readme
-  - [ ] Screen (or gif) from app
-  - [ ] Scheme of app
+  - [x] Screen (or gif) from app
+  - [x] Scheme of app
 - [ ] Continious integration
 - [x] Docker image
 - [ ] Better support of client disconnect in controller
