@@ -13,7 +13,7 @@ install:
  - make buildjs
 
 before_script:
-    - sudo ln -s /usr/lib/chromium-browser/chromium-browser /usr/bin/google-chrome
+    - sudo ln -s /usr/bin/chromium-browser /usr/bin/google-chrome
     - "sh -e /etc/init.d/xvfb start"
     - "export DISPLAY=:99.0"
     - "wget http://selenium-release.storage.googleapis.com/2.48/selenium-server-standalone-2.48.2.jar"
