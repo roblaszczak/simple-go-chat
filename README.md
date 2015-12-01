@@ -12,23 +12,23 @@ All frontend's JavaScript's are written in Golang and they are dumped into JavaS
 
 ### Standard way
 
-    go get github.com/gopherjs/gopherjs  # installs GopherJS
+    # installs GopherJS
+    go get github.com/gopherjs/gopherjs
     
-    go get github.com/gopherjs/jquery  # installs jQuery GopherJS's bindings
+    # installs jQuery GopherJS's bindings
+    go get github.com/gopherjs/jquery
     
-    go get github.com/roblaszczak/simple-go-chat/cmd/gochat  # installs Simple Go chat
+    # installs Simple Go chat
+    go get github.com/roblaszczak/simple-go-chat/cmd/gochat
     
     cd "$GOPATH/src/github.com/roblaszczak/simple-go-chat"
-    
     make buildjs # build JavaScript for frontend
 
 
 ### Docker
     
-    go get github.com/roblaszczak/simple-go-chat/cmd/gochat
-    
-    cd "$GOPATH/src/github.com/roblaszczak/simple-go-chat/cmd/gochat"
-    
+    git clone https://github.com/roblaszczak/simple-go-chat
+    cd simple-go-chat/cmd/gochat
     docker build -t simple-go-chat .
 
 ## How to run
@@ -41,7 +41,7 @@ Just execute
     
 ### Docker
 
-    docker run -p 8080:8080 -it --rm --name chat simple-go-chat
+    docker run -p 8080:8080 --rm --name chat simple-go-chat
 
 ## TODO
 
