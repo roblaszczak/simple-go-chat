@@ -13,7 +13,6 @@ install:
  - make buildjs
 
 before_script:
-    - "wget http://chromedriver.storage.googleapis.com/2.20/chromedriver_linux32.zip && unzip chromedriver_linux32.zip && sudo mv chromedriver /usr/bin"
     - "sh -e /etc/init.d/xvfb start"
     - "export DISPLAY=:99.0"
     - "wget http://selenium-release.storage.googleapis.com/2.48/selenium-server-standalone-2.48.2.jar"
