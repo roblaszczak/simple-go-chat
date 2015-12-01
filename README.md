@@ -1,12 +1,14 @@
 ![GoChat](https://github.com/roblaszczak/simple-go-chat/blob/master/public/logo.png?raw=true)
 
-# Simple Go Chat
+# Simple Go Chat (Alpha)
 
 Simple chat written in almost pure Golang. It uses websockets to comunicate with client. This is my first Golang app, so
 it is still far from perfection :) Any suggestions are welcome!
 
 All frontend's JavaScript's are written in Golang and they are dumped into JavaScript using 
 [gopherjs](https://github.com/gopherjs/gopherjs). Frontend is build using AngularJS.
+
+Chat is still in **alpha**, so some features are missing. More info at TODO section.
 
 ![Screen](https://github.com/roblaszczak/simple-go-chat/blob/master/docs/img/screen.png?raw=true)
 
