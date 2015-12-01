@@ -18,7 +18,7 @@ var _ = Describe("UserConnect", func() {
 		}()
 
 		var err error
-		page, err = agoutiDriver.NewPage(agouti.Browser("firefox"))
+		page, err = agoutiDriver.NewPage(agouti.Browser("chrome"))
 		Expect(err).NotTo(HaveOccurred())
 	})
 
