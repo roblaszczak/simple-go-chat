@@ -51,6 +51,11 @@ Just execute
 
 ## TODO
 
+- Frontend
+  - [ ] Connection errors
+- Chat
+  - [ ] Custom nickname support
+  - [ ] Connected clients list
 - [ ] Config from args
 - [ ] Set channels directions
 - [ ] Extended readme
@@ -59,8 +64,6 @@ Just execute
 - [ ] Continious integration
 - [x] Docker image
 - [ ] Better support of client disconnect in controller
-- [ ] Clients list
-- [ ] [Frontend] Connection errors
 
 ## Contributing
 
