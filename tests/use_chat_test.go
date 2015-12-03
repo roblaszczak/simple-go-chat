@@ -18,11 +18,6 @@ var _ = Describe("UserConnect", func() {
 			RunServer(config.SERVER_HOST, config.SERVER_PORT)
 		}()
 
-		capabilities := agouti.NewCapabilities().Browser("chrome")
-		capabilities["tunnel-identifier"] = os.Getenv("TRAVIS_JOB_NUMBER")
-
-		agoutiDriver.NewPage(agouti.Desired(capabilities))
-
 		var err error
 		page, err = agoutiDriver.NewPage(agouti.Browser("chrome"))
 		Expect(err).NotTo(HaveOccurred())
