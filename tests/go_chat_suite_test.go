@@ -6,6 +6,8 @@ import (
 	"github.com/sclevine/agouti"
 
 	"testing"
+	"fmt"
+	"os"
 )
 
 func TestGoChat(t *testing.T) {
@@ -16,9 +18,12 @@ func TestGoChat(t *testing.T) {
 var agoutiDriver *agouti.WebDriver
 
 var _ = BeforeSuite(func() {
-	agoutiDriver = agouti.NewWebDriver(
-		"http://username:access_key@ondemand.saucelabs.com/wd/hub",
-		[]string{"echo", "do nothing"})
+	driverUrl := fmt.Sprintf(
+		"http://%s:%s@ondemand.saucelabs.com/wd/hub",
+		os.Getenv("SAUCE_USERNAME"),
+		os.Getenv("SAUCE_ACCESS_KEY"))
+
+	agoutiDriver = agouti.NewWebDriver(driverUrl, []string{"echo", "do nothing"})
 
 	Expect(agoutiDriver.Start()).To(Succeed())
 })
