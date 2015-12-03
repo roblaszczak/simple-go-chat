@@ -3,6 +3,9 @@ sudo: true
 go:
   - 1.5
 
+addons:
+  sauce_connect: true
+
 script:
   - make test
 
@@ -11,9 +14,3 @@ install:
  - go get github.com/gopherjs/gopherjs
  - go get github.com/gopherjs/jquery
  - make buildjs
-
-before_script:
-    - "curl -sSL https://github.com/goodeggs/travis-utils/raw/master/chromedriver.sh | sh"
-    - "wget http://selenium-release.storage.googleapis.com/2.48/selenium-server-standalone-2.48.2.jar"
-    - "java -jar selenium-server-standalone-2.48.2.jar> /dev/null &"
-    - sleep 5
