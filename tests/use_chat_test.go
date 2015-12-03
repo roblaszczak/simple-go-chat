@@ -7,6 +7,7 @@ import (
 	"github.com/roblaszczak/simple-go-chat/config"
 	"github.com/sclevine/agouti"
 	. "github.com/sclevine/agouti/matchers"
+	"time"
 )
 
 var _ = Describe("UserConnect", func() {
@@ -35,6 +36,8 @@ var _ = Describe("UserConnect", func() {
 				panic(err)
 			}
 			print("html:", html)
+
+			time.Sleep(time.Second*2)
 
 			firstPostContent := getLastPost(page).Find(".content")
 			Expect(firstPostContent).To(MatchText("hello, anonymus_[0-9]{3}"))
