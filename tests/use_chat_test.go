@@ -7,7 +7,6 @@ import (
 	"github.com/roblaszczak/simple-go-chat/config"
 	"github.com/sclevine/agouti"
 	. "github.com/sclevine/agouti/matchers"
-	"os"
 )
 
 var _ = Describe("UserConnect", func() {
