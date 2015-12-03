@@ -25,6 +25,7 @@ var _ = BeforeSuite(func() {
 
 	capabilities := agouti.NewCapabilities().Browser("chrome")
 	capabilities["tunnel-identifier"] = os.Getenv("TRAVIS_JOB_NUMBER")
+	capabilities["javascriptEnabled"] = true
 
 	option := agouti.Desired(capabilities)
 
