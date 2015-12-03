@@ -36,6 +36,12 @@ var _ = Describe("UserConnect", func() {
 		By("allowing the user to connect chat", func() {
 			Expect(page.Navigate("http://localhost:8080")).To(Succeed())
 
+			html, err := page.HTML()
+			if err != nil {
+				panic(err)
+			}
+			print("html:", html)
+
 			firstPostContent := getLastPost(page).Find(".content")
 			Expect(firstPostContent).To(MatchText("hello, anonymus_[0-9]{3}"))
 		})
