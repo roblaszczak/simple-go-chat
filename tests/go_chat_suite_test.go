@@ -23,7 +23,12 @@ var _ = BeforeSuite(func() {
 		os.Getenv("SAUCE_USERNAME"),
 		os.Getenv("SAUCE_ACCESS_KEY"))
 
-	agoutiDriver = agouti.NewWebDriver(driverUrl, []string{"echo", "do nothing"})
+	capabilities := agouti.NewCapabilities()
+	capabilities["tunnel-identifier"] = os.Getenv("TRAVIS_JOB_NUMBER")
+
+	option := agouti.Desired(capabilities)
+
+	agoutiDriver = agouti.NewWebDriver(driverUrl, []string{"echo", "do nothing"}, option)
 
 	Expect(agoutiDriver.Start()).To(Succeed())
 })
