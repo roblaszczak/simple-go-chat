@@ -23,7 +23,7 @@ var _ = BeforeSuite(func() {
 		os.Getenv("SAUCE_USERNAME"),
 		os.Getenv("SAUCE_ACCESS_KEY"))
 
-	capabilities := agouti.NewCapabilities().Browser("chrome")
+	capabilities := agouti.NewCapabilities().Browser("firefox")
 	capabilities["tunnel-identifier"] = os.Getenv("TRAVIS_JOB_NUMBER")
 	capabilities["javascriptEnabled"] = true
 
