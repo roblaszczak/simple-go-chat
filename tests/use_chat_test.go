@@ -8,6 +8,7 @@ import (
 	"github.com/sclevine/agouti"
 	. "github.com/sclevine/agouti/matchers"
 	"time"
+	"log"
 )
 
 var _ = Describe("UserConnect", func() {
@@ -37,9 +38,14 @@ var _ = Describe("UserConnect", func() {
 			}
 			print("html:", html)
 
-			print("log:", page.ReadAllLogs("browser"))
 
 			time.Sleep(time.Second*2)
+
+			logs, err := page.ReadAllLogs("browser")
+			if err != nil {
+				log.Fatal(err)
+			}
+			print("log:", logs)
 
 			firstPostContent := getLastPost(page).Find(".content")
 			Expect(firstPostContent).To(MatchText("hello, anonymus_[0-9]{3}"))
