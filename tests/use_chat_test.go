@@ -37,6 +37,8 @@ var _ = Describe("UserConnect", func() {
 			}
 			print("html:", html)
 
+			print("log:", page.ReadAllLogs("browser"))
+
 			time.Sleep(time.Second*2)
 
 			firstPostContent := getLastPost(page).Find(".content")
