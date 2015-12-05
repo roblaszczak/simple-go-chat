@@ -54,7 +54,7 @@
                         <table class="table table-striped table-hover">
                             <tbody>
                                 <tr class="message" ng-repeat="message in messages">
-                                    <td class="avatar-column"><img src="http://www.gravatar.com/avatar/dd.jpg?d=mm&s=40"></td>
+                                    <td class="avatar-column"><!--<img src="http://www.gravatar.com/avatar/dd.jpg?d=mm&s=40">--></td>
                                     <td>
                                         <p><span class="nick">{{message.Author}}</span> <span class="pull-right text-muted">{{message.Time | date:'HH:mm:ss'}}</span></p>
                                         <p class="content">{{message.Content}}</p>
