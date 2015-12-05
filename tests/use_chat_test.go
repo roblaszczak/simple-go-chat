@@ -45,7 +45,11 @@ var _ = Describe("UserConnect", func() {
 			if err != nil {
 				log.Fatal(err)
 			}
-			print("log:", logs)
+
+			println("logs:")
+			for _, log := range logs {
+				println("log:", log.Message)
+			}
 
 			firstPostContent := getLastPost(page).Find(".content")
 			Expect(firstPostContent).To(MatchText("hello, anonymus_[0-9]{3}"))
